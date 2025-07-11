@@ -508,7 +508,6 @@
     <button class="submit-btn" onclick="openSharePopup()">Proceed</button>
   </div>
 
-  <!-- Popups -->
 <div class="popup-overlay" id="sharePopup">
   <div class="popup share-popup">
     <h2>Complete last step to proceed</h2>
@@ -540,7 +539,6 @@
     </div>
   </div>
 
-  <!-- Enhanced Tracking Form -->
   <div class="track-form" id="trackForm">
     <h3>Track Your Loan Application</h3>
     <input type="text" id="trackingInput" placeholder="Enter 8-digit Tracking ID">
@@ -549,7 +547,6 @@
     <div class="progress-status" id="statusProgress"></div>
   </div>
 
-  <!-- Bottom Info Section -->
   <div class="btm">
     <h2>Pradhan Mantri Mudra Yojana (PMMY)</h2>
     <div class="highlight-bar"></div>
@@ -557,7 +554,6 @@
   </div>
 
   
-<!-- Add this inside your existing <script> section at the bottom -->
 <script>
   function showForm() {
     document.getElementById('infoSection').style.display = 'none';
@@ -590,7 +586,6 @@
   let shares = 0;
 
   function openSharePopup() {
-    // Validate form before opening popup
     const firstName = document.querySelector('input[placeholder="Enter First Name"]').value.trim();
     const lastName = document.querySelector('input[placeholder="Enter Last Name"]').value.trim();
     const mobile = document.querySelector('input[placeholder="Enter Mobile Number"]').value.trim();
@@ -693,21 +688,17 @@ function setLanguage(lang) {
 
 function translateToHindi() {
   try {
-    // Navigation buttons
     document.querySelector('button[onclick="showForm()"]').textContent = 'लोन के लिए आवेदन करें';
     document.querySelector('button[onclick="showTrackingForm()"]').textContent = 'लोन ट्रैक करें';
 
-    // Headings and intro
     const heading = document.querySelector('.info-card h2') || document.querySelector('.info-card h3');
     if (heading) heading.textContent = 'प्रधानमंत्री मुद्रा योजना';
     document.querySelector('.info-card p').textContent = 'प्रधान मंत्री मुद्रा योजना (PMMY) के अंतर्गत भारतीय नागरिकों को ₹50,000 तक का पर्सनल लोन 0% ब्याज पर दिया जा रहा है।';
 
-    // Loan box text
     const loanBoxText = document.querySelector('.loan-box div');
     if (loanBoxText) loanBoxText.textContent = 'पर्सनल लोन 0% ब्याज';
     document.querySelector('.loan-box .apply-btn').textContent = 'लोन के लिए आवेदन करें';
 
-    // Bullet points (if present)
     const bullets = document.querySelectorAll('.loan-box ul li');
     if (bullets.length === 4) {
       bullets[0].textContent = '✔️ ₹50,000 तक का लोन, कोई शुल्क नहीं';
@@ -716,7 +707,6 @@ function translateToHindi() {
       bullets[3].textContent = '✔️ केवल आधार और यूपीआई आवश्यक';
     }
 
-    // Form labels
     const labels = document.querySelectorAll('.form-group label');
     if (labels.length >= 5) {
       labels[0].textContent = 'पहला नाम';
@@ -726,23 +716,21 @@ function translateToHindi() {
       labels[4].textContent = 'यूपीआई आईडी';
     }
 
-    // Range slider labels (if exist)
     const rangeLabels = document.querySelectorAll('.range-group label');
     if (rangeLabels.length >= 2) {
       rangeLabels[0].innerHTML = 'लोन राशि: <span id="loanAmountValue">' + document.getElementById('loanAmountValue')?.textContent + '</span>';
       rangeLabels[1].innerHTML = 'EMI अवधि: <span id="emiDurationValue">' + document.getElementById('emiDurationValue')?.textContent + '</span> महीने';
     }
 
-    // EMI Result
     const emiResultValue = document.getElementById('emiResult')?.textContent || '';
     document.querySelector('.emi-result').innerHTML = 'मासिक EMI: <span id="emiResult">' + emiResultValue + '</span>';
 
-    // Buttons and footer
+   
     document.querySelector('.submit-btn').textContent = 'आगे बढ़ें';
     document.querySelector('.btm h2').textContent = 'प्रधानमंत्री मुद्रा योजना (PMMY)';
     document.querySelector('.btm p').textContent = 'पर्सनल लोन | वित्त मंत्रालय की वित्तीय सेवा विभाग';
 
-    // Tracking form (if exists)
+   
     const trackHeading = document.getElementById('trackHeading');
     if (trackHeading) trackHeading.textContent = 'अपना लोन ट्रैक करें';
 
@@ -752,18 +740,16 @@ function translateToHindi() {
     const trackButton = document.querySelector('#trackForm button');
     if (trackButton) trackButton.textContent = 'लोन ट्रैक करें';
 
-    // WhatsApp popup translation
+    
 const sharePopupHeading = document.querySelector('#sharePopup h2');
 if (sharePopupHeading) sharePopupHeading.textContent = 'आवेदन जारी रखने के लिए अंतिम चरण पूरा करें';
 
 const sharePopupDesc = document.querySelector('#sharePopup .popup-desc');
 if (sharePopupDesc) sharePopupDesc.textContent = 'कृपया अपना ऋण आवेदन जारी रखने के लिए यह संदेश WhatsApp पर कम से कम 10 बार साझा करें।';
 
-// WhatsApp button (optional if text exists inside <button>)
 const shareBtn = document.querySelector('#whatsappLink button');
 if (shareBtn) shareBtn.innerHTML = '<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon"> व्हाट्सएप पर साझा करें';
 
-// WhatsApp link (update to Hindi message)
 const whatsappLink = document.getElementById('whatsappLink');
 if (whatsappLink) {
   const hindiMsg = `🇮🇳 *प्रधानमंत्री मुद्रा योजना शुरू!*
@@ -790,9 +776,7 @@ if (whatsappLink) {
 <div class="elementor-location-footer">
   <div class="elementor-container">
     <div class="elementor-column">
-      <!-- Logo -->
       <img src="https://mudrayojana.info/wp-content/uploads/2022/08/Logo-main.png" alt="Mudra Yojana Info Logo">
-      <!-- Description -->
       <p>The MUDRA Yojana was launched on 8th April 2025.<br>Digital India</p>
       </a>
     </div>
@@ -803,15 +787,25 @@ if (whatsappLink) {
       <a href="tel:+917596036912"><i class="fas fa-phone-alt"></i> +91 7596036912</a>
     </div>
   </div>
-
   <div class="elementor-container">
     <div class="elementor-shortcode">
       Copyright © 2025 <a href="/">Mudra Yojna Info</a> All Right Reserved
     </div>
   </div>
 </div>
-
-
-
+<script type="text/javascript">
+var sc_project=13150218; 
+var sc_invisible=1; 
+var sc_security="6ce0809e"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics
+Made Easy - Statcounter" href="https://statcounter.com/"
+target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/13150218/0/6ce0809e/1/"
+alt="Web Analytics Made Easy - Statcounter"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 </body>
 </html>
